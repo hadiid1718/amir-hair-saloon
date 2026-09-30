@@ -69,69 +69,76 @@ export const services = [
       ['Skin Fade', 'Rs. 1,500', 'Precision fade with finish'],
       ['Taper Fade', 'Rs. 1,500', 'Clean taper & styling'],
       ['Scissor Cut', 'Rs. 1,600', 'Detailed scissor work'],
-      ['Kids Cut', 'Rs. 1,000', 'For guests under 12']
-    ]
+      ['Kids Cut', 'Rs. 1,000', 'For guests under 12'],
+    ],
   },
+
   {
     category: 'Hair & Beard',
     items: [
       ['Haircut + Beard', 'Rs. 2,300', 'Complete grooming service'],
       ['Skin Fade + Beard', 'Rs. 2,600', 'Fade, shape & hot towel'],
       ['Executive Grooming', 'Rs. 3,200', 'Premium head-to-beard service'],
-      ['Hair + Beard Express', 'Rs. 2,000', 'Fast clean-up & finish']
-    ]
+      ['Hair + Beard Express', 'Rs. 2,000', 'Fast clean-up & finish'],
+    ],
   },
+
   {
     category: 'Beard',
     items: [
       ['Beard Trim', 'Rs. 800', 'Shape, trim & finish'],
       ['Beard Sculpt', 'Rs. 1,000', 'Detailed beard design'],
       ['Hot Towel Beard', 'Rs. 1,200', 'Steam, towel & styling'],
-      ['Moustache Trim', 'Rs. 500', 'Sharp line and finish']
-    ]
+      ['Moustache Trim', 'Rs. 500', 'Sharp line and finish'],
+    ],
   },
+
   {
     category: 'Color',
     items: [
       ['Hair Color', 'Rs. 3,500', 'Professional full color'],
       ['Highlights', 'Rs. 4,500+', 'Custom highlights & toning'],
       ['Beard Color', 'Rs. 1,200', 'Natural-looking beard color'],
-      ['Ammonia-Free Color', 'Rs. 4,500+', 'Gentler premium color']
-    ]
+      ['Ammonia-Free Color', 'Rs. 4,500+', 'Gentler premium color'],
+    ],
   },
+
   {
     category: 'Treatment',
     items: [
       ['Hair Spa', 'Rs. 2,500', 'Deep conditioning treatment'],
       ['Protein Treatment', 'Rs. 4,000', 'Strength and smoothness'],
       ['Anti-Dandruff Care', 'Rs. 2,000', 'Scalp cleanse & treatment'],
-      ['Keratin Treatment', 'Rs. 7,500+', 'Smoothing treatment']
-    ]
+      ['Keratin Treatment', 'Rs. 7,500+', 'Smoothing treatment'],
+    ],
   },
+
   {
     category: 'Massage',
     items: [
       ['Head Massage', 'Rs. 1,000', '15-minute relaxation'],
       ['Head & Shoulder', 'Rs. 1,500', '20-minute massage'],
-      ['Hot Towel Ritual', 'Rs. 900', 'Relaxing towel service']
-    ]
+      ['Hot Towel Ritual', 'Rs. 900', 'Relaxing towel service'],
+    ],
   },
+
   {
     category: 'Waxing',
     items: [
       ['Face Wax', 'Rs. 1,200', 'Gentle facial waxing'],
       ['Nose & Ear Wax', 'Rs. 700', 'Quick clean-up'],
-      ['Full Beard Clean-up', 'Rs. 900', 'Edge and line precision']
-    ]
+      ['Full Beard Clean-up', 'Rs. 900', 'Edge and line precision'],
+    ],
   },
+
   {
     category: 'Care',
     items: [
       ['Express Facial', 'Rs. 1,800', 'Cleanse, exfoliate & hydrate'],
       ['Blackhead Clean-up', 'Rs. 1,500', 'Targeted skin refresh'],
-      ['Scalp Detox', 'Rs. 1,700', 'Deep scalp cleanse']
-    ]
-  }
+      ['Scalp Detox', 'Rs. 1,700', 'Deep scalp cleanse'],
+    ],
+  },
 ];
 
 export const faqs = [
