@@ -1,0 +1,56 @@
+@import 'tailwindcss';
+
+/*
+  Design tokens for Asad Hair Saloon.
+  Everything visual is expressed with Tailwind utilities in the components;
+  this file only declares the theme and a few global base rules.
+*/
+@theme {
+  --color-paper: #ffffff;
+  --color-paper-soft: #f9f8f6;
+  --color-paper-light: #f9f8f6;
+  --color-ink: #0b0a08;
+  --color-secondary: #413c39;
+  --color-muted: #707070;
+  --color-faint: #a0a0a0;
+  --color-line: #ececec;
+  --color-dark: #0b0a08;
+  /* `navy` is the dark surface colour (buttons, selected cards, dark panels). */
+  --color-navy: #1d1916;
+  --color-gold: #fbbf24;
+
+  --font-sans: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+
+  /* max-tablet: / max-mobile: / max-tiny: replace the old media queries */
+  --breakpoint-tiny: 381px;
+  --breakpoint-mobile: 621px;
+  --breakpoint-tablet: 901px;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 76px;
+  }
+
+  body {
+    background-color: var(--color-paper);
+    color: var(--color-ink);
+    font-family: var(--font-sans);
+    font-size: 15px;
+    line-height: 1.45;
+  }
+
+  @media (width < 621px) {
+    body { font-size: 14px; }
+  }
+
+  button:not(:disabled),
+  [role='button']:not([aria-disabled='true']) {
+    cursor: pointer;
+  }
+
+  button:disabled {
+    cursor: not-allowed;
+  }
+}
