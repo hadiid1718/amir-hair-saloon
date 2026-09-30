@@ -1,3 +1,19 @@
+// Load every portfolio image (image-1.jpeg ... image-15.jpeg) from src/assets/portfolio-images
+const portfolioModules = import.meta.glob('../assets/portfolio-images/image-*.{jpeg,jpg,png,webp}', {
+  eager: true,
+  import: 'default'
+});
+
+// Sort numerically so image-2 comes before image-10
+const portfolioImages = Object.entries(portfolioModules)
+  .sort(([a], [b]) => {
+    const numA = parseInt(a.match(/image-(\d+)/)?.[1] ?? '0', 10);
+    const numB = parseInt(b.match(/image-(\d+)/)?.[1] ?? '0', 10);
+    return numA - numB;
+  })
+  .map(([, url]) => url);
+
+const MAP_QUERY = '30.1575,71.5249';
 export const site = {
   name: 'Asad Hair Saloon',
   shortName: 'ASAD',
@@ -8,7 +24,8 @@ export const site = {
   phone: '+92 300 0000000',
   hours: 'Mon — Sun · 11:00 AM — 11:00 PM',
   instagramUrl: 'https://www.instagram.com/',
-  mapsUrl: 'https://maps.google.com/',
+  mapsUrl: `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(MAP_QUERY)}`,
+  mapEmbedUrl: `https://www.google.com/maps?q=${encodeURIComponent(MAP_QUERY)}&z=16&output=embed`,
   bookingEmail: 'hello@asadhairsaloon.com'
 };
 
@@ -22,25 +39,9 @@ export const media = {
     'https://images.unsplash.com/photo-1503951914875-452162b0f3f1?auto=format&fit=crop&w=1800&q=88',
     'https://images.unsplash.com/photo-1512690459411-b9245aed614b?auto=format&fit=crop&w=1800&q=88',
     'https://images.unsplash.com/photo-1521590832167-7bcbfaa6381f?auto=format&fit=crop&w=1800&q=88',
-    'https://images.unsplash.com/photo-1599351431202-1e0f0c8bca1a?auto=format&fit=crop&w=1800&q=88'
+    'https://images.unsplash.com/photo-1621605815971-fbc98d665033?auto=format&fit=crop&w=1200&q=88',
   ],
-  gallery: [
-    'https://images.unsplash.com/photo-1599351431202-1e0f0c8bca1a?auto=format&fit=crop&w=900&q=88',
-    'https://images.unsplash.com/photo-1621605815971-fbc98d665033?auto=format&fit=crop&w=900&q=88',
-    'https://images.unsplash.com/photo-1622286342621-4bd786c2447c?auto=format&fit=crop&w=900&q=88',
-    'https://images.unsplash.com/photo-1593702288056-efaee7aa2221?auto=format&fit=crop&w=900&q=88',
-    'https://images.unsplash.com/photo-1622288432450-277d0fef5ed6?auto=format&fit=crop&w=900&q=88',
-    'https://images.unsplash.com/photo-1599351431616-4f2f6eb79e5b?auto=format&fit=crop&w=900&q=88',
-    'https://images.unsplash.com/photo-1521490683712-22ef3f8fc5e1?auto=format&fit=crop&w=900&q=88',
-    'https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&w=900&q=88',
-    'https://images.unsplash.com/photo-1520975958225-7f61d9f35c4a?auto=format&fit=crop&w=900&q=88',
-    'https://images.unsplash.com/photo-1595476108010-b4d1f102b1b1?auto=format&fit=crop&w=900&q=88',
-    'https://images.unsplash.com/photo-1520337361779-d791f9a6f5a6?auto=format&fit=crop&w=900&q=88',
-    'https://images.unsplash.com/photo-1621605815971-fbc98d665033?auto=format&fit=crop&w=900&q=88',
-    'https://images.unsplash.com/photo-1622286342621-4bd786c2447c?auto=format&fit=crop&w=900&q=88',
-    'https://images.unsplash.com/photo-1599351431202-1e0f0c8bca1a?auto=format&fit=crop&w=900&q=88',
-    'https://images.unsplash.com/photo-1521490683712-22ef3f8fc5e1?auto=format&fit=crop&w=900&q=88'
-  ]
+  gallery: portfolioImages
 };
 
 export const team = [
