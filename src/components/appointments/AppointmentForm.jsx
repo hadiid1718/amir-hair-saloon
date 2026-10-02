@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
-import { ArrowLeft, ArrowRight } from 'lucide-react';
+import {  ArrowRight, ChevronLeft } from 'lucide-react';
 import { bookingProviders } from '../../data/bookingData';
 import { ADVANCE_PERCENT, calculateAdvance } from '../../data/paymentData';
 import { loadPendingBooking, savePendingBooking } from '../../services/bookingService';
@@ -15,7 +15,8 @@ import { TimeStep } from './steps/TimeStep';
 import { CheckoutStep } from './steps/CheckoutStep';
 import { backLink } from './bookingClasses';
 import { formatDateKey, isSlotSelectable, makeDates } from './bookingUtils';
-
+import { HeaderPortal } from '../layout/HeaderPortal';
+import { BACK_SLOT_ID, PROGRESS_SLOT_ID } from '../layout/BookingHeader';
 /** Delay before an automatic step change, so the person sees their selection register first. */
 const AUTO_ADVANCE_MS = 260;
 const LAST_BOOKING_STEP = 4;
@@ -265,12 +266,22 @@ export function AppointmentForm() {
 
   return (
     <form onSubmit={submit} className="mx-auto w-[min(1200px,100%)]" noValidate>
-      <div ref={topRef} className="mb-[22px] flex min-h-7 scroll-mt-[90px] items-center justify-between max-mobile:mb-3.5">
-        <button className={`${backLink} max-mobile:text-[9px]`} type="button" onClick={step === 1 ? goBackFromFirst : previousStep}>
-          <ArrowLeft size={13} /> Back
-        </button>
-        <BookingProgress current={step} canGoTo={canGoTo} onSelect={goToStep} />
-      </div>
+<div ref={topRef} className="h-2 scroll-mt-[90px]" />
+
+<HeaderPortal slotId={BACK_SLOT_ID}>
+  <button
+    type="button"
+    aria-label="Back"
+    className="grid size-9 place-items-center rounded-full hover:bg-ink/5"
+    onClick={step === 1 ? goBackFromFirst : previousStep}
+  >
+    <ChevronLeft size={24} />
+  </button>
+</HeaderPortal>
+
+<HeaderPortal slotId={PROGRESS_SLOT_ID}>
+  <BookingProgress current={step} canGoTo={canGoTo} onSelect={goToStep} />
+</HeaderPortal>
 
       <div className="grid grid-cols-[minmax(0,1fr)_252px] items-start gap-[26px] max-tablet:grid-cols-1">
         <div className="min-w-0">

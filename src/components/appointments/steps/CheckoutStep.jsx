@@ -4,8 +4,8 @@ import { emphasis } from '../../../utils/ui';
 import { formatLongDate, formatPrice } from '../bookingUtils';
 import { backLink, card, cardTitleRow, errorNotice, infoNotice, infoNoticeIcon, primaryButton, stepLabel, stepSection, stepTitle } from '../bookingClasses';
 
-const fieldLabel = 'grid gap-1.5 text-[8px] font-bold text-secondary';
-const fieldInput = 'h-[38px] w-full rounded border bg-paper-light px-2.5 text-[9px] text-ink outline-none focus:bg-white';
+const fieldLabel = 'grid gap-1.5 text-[12px] font-bold text-secondary';
+const fieldInput = 'h-[38px] w-full rounded border bg-paper-light px-2.5 text-[12px] text-ink outline-none focus:bg-white';
 
 function Field({ id, label, error, ...inputProps }) {
   return (
@@ -18,13 +18,13 @@ function Field({ id, label, error, ...inputProps }) {
         aria-describedby={error ? `${id}-error` : undefined}
         {...inputProps}
       />
-      {error && <span id={`${id}-error`} className="text-[8px] font-medium text-[#b3382b]">{error}</span>}
+      {error && <span id={`${id}-error`} className="text-[12px] font-medium text-[#b3382b]">{error}</span>}
     </label>
   );
 }
 
 export function CheckoutStep({ provider, services, activeDate, time, totalPrice, totalDuration, advanceAmount, form, errors, onChange, onBlurField, onBack, formError }) {
-  const summaryRow = 'flex justify-between gap-5 pt-[11px] text-[8px] max-mobile:flex-col max-mobile:items-start max-mobile:gap-1';
+  const summaryRow = 'flex justify-between gap-5 pt-[11px] text-[12px] max-mobile:flex-col max-mobile:items-start max-mobile:gap-1';
   const rowLabel = 'text-muted';
   const rowValue = 'max-w-[70%] text-right max-mobile:max-w-full max-mobile:text-left';
 
@@ -41,7 +41,7 @@ export function CheckoutStep({ provider, services, activeDate, time, totalPrice,
 
       <span className={stepLabel}>Step 04 · Checkout</span>
       <h1 className={stepTitle}>Confirm your <em className={emphasis}>booking.</em></h1>
-      <p className="mb-5 mt-3 max-w-[520px] text-[10px] leading-[1.7] text-muted">
+      <p className="mb-5 mt-3 max-w-[520px] text-[12px] leading-[1.7] text-muted">
         Almost there. Add your contact details and review your appointment before booking.
       </p>
 
@@ -50,10 +50,10 @@ export function CheckoutStep({ provider, services, activeDate, time, totalPrice,
       <div className={card}>
         <div className="flex items-start justify-between gap-3 border-b border-line pb-[13px]">
           <div className="grid gap-1">
-            <span className="font-semibold text-[7px] uppercase tracking-[.08em] text-muted">Your appointment</span>
-            <strong className="text-[10px]">{provider.name}</strong>
+            <span className="font-semibold text-[12px] uppercase tracking-[.08em] text-muted">Your appointment</span>
+            <strong className="text-[12px]">{provider.name}</strong>
           </div>
-          <span className="rounded-full bg-[#f5f5f3] px-[7px] py-[5px] font-semibold text-[7px] text-muted">In progress</span>
+          <span className="rounded-full bg-[#f5f5f3] px-[7px] py-[5px] font-semibold text-[12px] text-muted">In progress</span>
         </div>
         <div className={summaryRow}>
           <span className={rowLabel}>Services</span>
@@ -73,7 +73,7 @@ export function CheckoutStep({ provider, services, activeDate, time, totalPrice,
         </div>
         <div className={summaryRow}>
           <span className={rowLabel}>Advance due next ({ADVANCE_PERCENT}%)</span>
-          <strong className={`${rowValue} text-[9px]`}>{formatPrice(advanceAmount)}</strong>
+          <strong className={`${rowValue} text-[12px]`}>{formatPrice(advanceAmount)}</strong>
         </div>
       </div>
 
@@ -81,8 +81,8 @@ export function CheckoutStep({ provider, services, activeDate, time, totalPrice,
         <div className={cardTitleRow}>
           <UserRound size={16} className="text-muted" />
           <div className="grid gap-0.5">
-            <strong className="text-[9px]">Your details</strong>
-            <span className="text-[7px] text-faint">All fields are required. We'll use them to confirm your appointment.</span>
+            <strong className="text-[12px]">Your details</strong>
+            <span className="text-[12px] text-faint">All fields are required. We'll use them to confirm your appointment.</span>
           </div>
         </div>
 

@@ -8,7 +8,7 @@ export function Brand({ onHome }) {
       aria-label={`${site.name} home`}
     >
       <span className="text-[13px] font-extrabold leading-[.88] tracking-[-.035em]">{site.shortName}</span>
-      <span className="mt-0.5 text-[7px] tracking-[.17em]">HAIR SALOON</span>
+      <span className="mt-0.5 text-[12px] tracking-[.17em]">HAIR SALOON</span>
     </button>
   );
 }

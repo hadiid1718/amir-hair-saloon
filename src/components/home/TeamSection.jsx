@@ -3,7 +3,7 @@ import { team } from '../../data/siteData';
 import { referenceSectionY, sectionPad } from '../../utils/ui';
 import { useBookingNavigation } from '../../hooks/useBookingNavigation';
 
-const photoLabel = 'absolute bottom-2 left-[9px] font-semibold text-[9px] uppercase tracking-[.08em] [text-shadow:0_1px_10px_rgba(0,0,0,.6)]';
+const photoLabel = 'absolute text-white bottom-10 left-4 font-bold text-[16px] uppercase tracking-[.08em] [text-shadow:0_1px_10px_rgba(0,0,0,.6)]';
 
 export function TeamSection() {
   const goBooking = useBookingNavigation();
@@ -15,13 +15,13 @@ export function TeamSection() {
         <span className="block h-px w-11 bg-line" />
       </div>
 
-      <div className="grid grid-cols-[repeat(2,minmax(0,175px))] gap-3.5 max-[760px]:max-w-[360px] max-[760px]:grid-cols-[repeat(2,minmax(0,1fr))] max-[520px]:max-w-full max-[520px]:gap-2">
+      <div className="grid grid-cols-[repeat(2,minmax(0,280px))] gap-[30px] max-[1000px]:grid-cols-[repeat(2,minmax(0,1fr))] max-[1000px]:gap-5 max-[520px]:gap-3">
         {team.map((person, index) => {
           const featured = index === 0 && !person.placeholder;
           return (
             <article
               key={person.id}
-              className={`group overflow-hidden rounded-md border border-[rgba(17,17,17,.08)] ${
+              className={`group overflow-hidden rounded-3xl border border-[rgba(17,17,17,.08)] ${
                 person.placeholder ? 'bg-navy text-white' : featured ? 'bg-paper-soft text-ink' : 'bg-navy text-white'
               }`}
             >
@@ -38,7 +38,7 @@ export function TeamSection() {
                   <button
                     type="button"
                     onClick={goBooking}
-                    className="inline-flex items-center gap-1.5 rounded-full border border-white/35 bg-black/20 px-[11px] py-[9px] text-[9px] font-bold text-white backdrop-blur-[7px] hover:border-white hover:bg-white hover:text-ink"
+                    className="inline-flex items-center gap-1.5 rounded-full border border-white/35 bg-black/20 px-[11px] py-[9px] text-[12px] font-bold text-white backdrop-blur-[7px] hover:border-white hover:bg-white hover:text-ink"
                   >
                     {person.actionLabel}
                     <ArrowUpRight size={13} />

@@ -29,8 +29,8 @@ export function ProfessionalStep({ providerId, onSelect }) {
               <div className="mb-[5px] grid size-[54px] place-items-center overflow-hidden rounded-full bg-[#f5f5f3] text-faint">
                 {item.image ? <img className="size-full object-cover" src={item.image} alt="" /> : <Scissors size={22} strokeWidth={1.5} />}
               </div>
-              <strong className="text-[11px] font-bold">{item.name}</strong>
-              <span className="text-[8px] leading-[1.45] text-muted">{item.subtitle}</span>
+              <strong className="text-[12px] font-bold">{item.name}</strong>
+              <span className="text-[12px] leading-[1.45] text-muted">{item.subtitle}</span>
               {selected && (
                 <span className="absolute right-[9px] top-[9px] grid size-[18px] place-items-center rounded-full bg-ink text-white">
                   <Check size={12} />

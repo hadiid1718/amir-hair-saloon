@@ -8,7 +8,7 @@ import { useAuth } from '../../hooks/useAuth';
 import { useRouter } from '../../hooks/useRouter';
 import { useBookingNavigation } from '../../hooks/useBookingNavigation';
 
-const pill = 'rounded-full border border-current px-2 py-1.5 font-semibold text-[9px] uppercase tracking-[.08em] opacity-80';
+const pill = 'rounded-full border border-current px-2 py-1.5 font-semibold text-[12px] uppercase tracking-[.08em] opacity-80';
 
 export function GlobalHeader() {
   const { auth, guest, logout } = useAuth();
@@ -46,7 +46,9 @@ export function GlobalHeader() {
           'fixed inset-x-0 top-0 z-40 grid h-[72px] grid-cols-[1fr_auto_1fr] items-center px-[clamp(16px,4vw,56px)]',
           'transition-[background-color,color,border-color] duration-200',
           'max-tablet:grid-cols-[1fr_auto] max-mobile:h-[62px] max-mobile:px-4',
-          solid ? 'border-b border-line bg-paper/96 text-ink backdrop-blur-lg' : 'text-white'
+          solid
+  ? 'border-b border-line bg-paper/96 text-ink backdrop-blur-lg'
+  : 'bg-[linear-gradient(180deg,rgba(8,8,8,.65)_0%,rgba(8,8,8,.3)_60%,rgba(8,8,8,0)_100%)] text-white [text-shadow:0_1px_8px_rgba(0,0,0,.55)]'
         ].join(' ')}
       >
         <Brand onHome={() => navigate(ROUTES.home)} />
@@ -69,14 +71,14 @@ export function GlobalHeader() {
 
           {auth ? (
             <button
-              className="inline-flex items-center gap-[5px] text-[11px] opacity-[.82] max-tablet:hidden"
+              className="inline-flex items-center gap-[5px] text-[12px] opacity-[.82] max-tablet:hidden"
               onClick={() => { logout(); navigate(ROUTES.home); }}
             >
               Log out <LogOut size={13} />
             </button>
           ) : (
             <button
-              className="inline-flex items-center gap-[5px] text-[11px] opacity-[.82] max-tablet:hidden"
+              className="inline-flex items-center gap-[5px] text-[12px] opacity-[.82] max-tablet:hidden"
               onClick={() => navigate(ROUTES.login)}
             >
               Log in <LogIn size={13} />
@@ -84,7 +86,7 @@ export function GlobalHeader() {
           )}
 
           <button
-            className={`${bookingButton} min-h-8 max-mobile:min-h-[29px] max-mobile:px-2.5 max-mobile:py-2 max-mobile:text-[10px] max-tiny:hidden`}
+            className={`${bookingButton} min-h-8 max-mobile:min-h-[29px] max-mobile:px-2.5 max-mobile:py-2 max-mobile:text-[12px] max-tiny:hidden`}
             onClick={goBooking}
           >
             Book Appointment <ArrowUpRight size={14} />

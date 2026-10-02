@@ -36,14 +36,14 @@ export function CopyField({ label, value }) {
   };
 
   return (
-    <div className="flex items-center justify-between gap-3 pt-[11px] text-[8px] max-mobile:flex-wrap">
+    <div className="flex items-center justify-between gap-3 pt-[11px] text-[12px] max-mobile:flex-wrap">
       <span className="text-muted">{label}</span>
       <div className="flex items-center gap-2">
-        <strong className="text-[9px] tracking-[.02em] max-mobile:break-all">{value}</strong>
+        <strong className="text-[12px] tracking-[.02em] max-mobile:break-all">{value}</strong>
         <button
           type="button"
           onClick={handleCopy}
-          className="inline-flex items-center gap-1 rounded-full border border-line px-2 py-1 text-[7px] font-bold hover:bg-[#f5f5f3]"
+          className="inline-flex items-center gap-1 rounded-full border border-line px-2 py-1 text-[12px] font-bold hover:bg-[#f5f5f3]"
           aria-label={`Copy ${label}`}
         >
           {copied ? <Check size={9} /> : <Copy size={9} />}

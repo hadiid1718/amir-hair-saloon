@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { ArrowUpRight, ChevronDown, Scissors } from 'lucide-react';
 
-import { services } from '../../data/siteData';
+import { services, team } from '../../data/siteData';
 
 import {
   darkPill,
@@ -45,20 +45,21 @@ export function ServicesSection() {
         </p>
 
         {/* Category Chips */}
-        <div
-          className="mt-4 inline-flex flex-wrap justify-center gap-2"
-          aria-hidden="true"
-        >
-          <span className={`${filterChip} bg-white text-ink`}>
-            All
-          </span>
+     <div className="mt-7 flex flex-wrap items-center justify-center gap-x-6 gap-y-3">
+  <div className="inline-flex items-center gap-2.5">
+    <span className="rounded-lg bg-navy px-3 py-1.5 text-[12px] font-bold uppercase tracking-[.04em] text-white">
+      {team[0].name}
+    </span>
+    <span className="text-[15px] text-muted max-mobile:text-[14px]">Premium service by {team[0].name}</span>
+  </div>
 
-          <span className={filterChip}>Hair</span>
-
-          <span className={filterChip}>Beard</span>
-
-          <span className={filterChip}>Care</span>
-        </div>
+  <div className="inline-flex items-center gap-2.5">
+    <span className="rounded-lg bg-paper-soft px-3 py-1.5 text-[12px] font-bold uppercase tracking-[.04em] text-ink">
+      Stylist
+    </span>
+    <span className="text-[15px] text-muted max-mobile:text-[14px]">Performed by our stylists</span>
+  </div>
+</div>
       </div>
 
       {/* =========================================================
@@ -138,7 +139,7 @@ export function ServicesSection() {
                         text-[20px]
                         font-bold
                         tracking-[-.02em]
-                        max-mobile:text-[17px]
+                        max-mobile:text-[15px]
                       "
                     >
                       {group.category}
@@ -149,7 +150,7 @@ export function ServicesSection() {
                         text-[12px]
                         font-medium
                         text-[#a49e96]
-                        max-mobile:text-[11px]
+                        max-mobile:text-[12px]
                       "
                     >
                       {group.items.length}{' '}
@@ -234,7 +235,7 @@ export function ServicesSection() {
                               <span
                                 className="
                                   block
-                                  text-[16px]
+                                  text-[15px]
                                   font-medium
                                   text-ink
                                   max-mobile:text-[14px]

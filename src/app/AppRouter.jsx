@@ -11,7 +11,7 @@ const PaymentPage = lazy(() => import('../pages/PaymentPage').then((module) => (
 const NotFoundPage = lazy(() => import('../pages/NotFoundPage').then((module) => ({ default: module.NotFoundPage })));
 
 function LoadingScreen() {
-  return <div className="grid min-h-screen place-items-center bg-paper font-semibold text-[9px] uppercase tracking-[.12em] text-muted" role="status" aria-live="polite">Loading…</div>;
+  return <div className="grid min-h-screen place-items-center bg-paper font-semibold text-[12px] uppercase tracking-[.12em] text-muted" role="status" aria-live="polite">Loading…</div>;
 }
 
 export function AppRouter() {

@@ -30,10 +30,10 @@ export function ServiceStep({ provider, selectedIds, onToggle, onBack, onContinu
                 selected ? 'border-navy bg-navy text-white' : 'border-ink/[.09] bg-white hover:border-ink/25'
               }`}
             >
-              <span className="text-[10px] font-bold">{service.name}</span>
-              <span className={`justify-self-end text-[8px] ${selected ? 'text-white/70' : 'text-muted'}`}>{service.duration} mins</span>
-              <span className="col-span-full mt-[3px] text-[9px] font-bold">{formatPrice(service.price)}</span>
-              <span className={`col-span-full mt-2 self-end text-[8px] ${selected ? 'text-white/70' : 'text-muted'}`}>{service.description}</span>
+              <span className="text-[12px] font-bold">{service.name}</span>
+              <span className={`justify-self-end text-[12px] ${selected ? 'text-white/70' : 'text-muted'}`}>{service.duration} mins</span>
+              <span className="col-span-full mt-[3px] text-[12px] font-bold">{formatPrice(service.price)}</span>
+              <span className={`col-span-full mt-2 self-end text-[12px] ${selected ? 'text-white/70' : 'text-muted'}`}>{service.description}</span>
               <span className={`absolute bottom-2.5 right-[11px] grid size-[19px] place-items-center rounded-full border text-sm ${selected ? 'border-white/30 bg-white text-navy' : 'border-faint/50 text-muted'}`}>
                 {selected ? <Check size={13} /> : '+'}
               </span>

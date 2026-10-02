@@ -12,9 +12,10 @@ import { backLink, card, cardTitleRow, errorNotice, infoNotice, infoNoticeIcon, 
 import { formatLongDate, formatPrice, isSlotSelectable, parseDateKey } from '../appointments/bookingUtils';
 import { CopyField } from './CopyField';
 import { ScreenshotUpload } from './ScreenshotUpload';
-
+import { HeaderPortal } from '../layout/HeaderPortal';
+import { BACK_SLOT_ID, PROGRESS_SLOT_ID } from '../layout/BookingHeader'
 const PAYMENT_STEP = 5;
-const summaryRow = 'flex justify-between gap-5 pt-[11px] text-[8px]';
+const summaryRow = 'flex justify-between gap-5 pt-[11px] text-[12px]';
 
 export function PaymentFlow() {
   const { navigate } = useRouter();
@@ -85,16 +86,24 @@ export function PaymentFlow() {
         <div className="mb-3.5 grid size-12 place-items-center rounded-full border border-line"><Check size={22} /></div>
         <span className={stepLabel}>Payment proof received</span>
         <h2 className="mb-2.5 mt-2 text-[clamp(42px,5.2vw,69px)] font-bold leading-[.9] tracking-[-.06em]">See you at <em className={emphasis}>Asad.</em></h2>
-        <p className="my-[1em] max-w-[450px] text-[10px] leading-[1.7] text-muted">
+        <p className="my-[1em] max-w-[450px] text-[12px] leading-[1.7] text-muted">
           Thank you, {completed.contact.name}. Your appointment with <strong>{completed.provider}</strong> on <strong>{when}</strong> is
           requested. We'll verify your advance payment of <strong>{formatPrice(completed.payment.amount)}</strong> and confirm by phone or email.
         </p>
-        <div className="mt-3 flex gap-2">
-          <button className={primaryButton} type="button" onClick={() => navigate(ROUTES.appointments)}>
-            Book another <ArrowRight size={15} />
-          </button>
-          <button className={secondaryButton} type="button" onClick={() => navigate(ROUTES.home)}>Back to home</button>
-        </div>
+<HeaderPortal slotId={BACK_SLOT_ID}>
+  <button
+    type="button"
+    aria-label="Back"
+    className="grid size-9 place-items-center rounded-full hover:bg-ink/5"
+    onClick={() => navigate(ROUTES.appointments, { resume: true })}
+  >
+    <ChevronLeft size={24} />
+  </button>
+</HeaderPortal>
+
+<HeaderPortal slotId={PROGRESS_SLOT_ID}>
+  <BookingProgress current={PAYMENT_STEP} />
+</HeaderPortal>
       </div>
     );
   }
@@ -104,7 +113,7 @@ export function PaymentFlow() {
   return (
     <form onSubmit={submit} className="mx-auto w-[min(1200px,100%)]" noValidate>
       <div className="mb-[22px] flex min-h-7 items-center justify-between max-mobile:mb-3.5">
-        <button className={`${backLink} max-mobile:text-[9px]`} type="button" onClick={() => navigate(ROUTES.appointments, { resume: true })}>
+        <button className={`${backLink} max-mobile:text-[12px]`} type="button" onClick={() => navigate(ROUTES.appointments, { resume: true })}>
           <ArrowLeft size={13} /> Back
         </button>
         <BookingProgress current={PAYMENT_STEP} />
@@ -123,10 +132,10 @@ export function PaymentFlow() {
           <div className={card}>
             <div className="flex items-start justify-between gap-3 border-b border-line pb-[13px]">
               <div className="grid gap-1">
-                <span className="font-semibold text-[7px] uppercase tracking-[.08em] text-muted">Your appointment</span>
-                <strong className="text-[10px]">{booking.provider} · {formatLongDate(parseDateKey(booking.date))} · {booking.time}</strong>
+                <span className="font-semibold text-[12px] uppercase tracking-[.08em] text-muted">Your appointment</span>
+                <strong className="text-[12px]">{booking.provider} · {formatLongDate(parseDateKey(booking.date))} · {booking.time}</strong>
               </div>
-              <span className="rounded-full bg-[#f5f5f3] px-[7px] py-[5px] font-semibold text-[7px] text-muted">Awaiting payment</span>
+              <span className="rounded-full bg-[#f5f5f3] px-[7px] py-[5px] font-semibold text-[12px] text-muted">Awaiting payment</span>
             </div>
             <div className={summaryRow}>
               <span className="text-muted">Total</span>
@@ -146,8 +155,8 @@ export function PaymentFlow() {
             <div className={cardTitleRow}>
               <Landmark size={16} className="text-muted" />
               <div className="grid gap-0.5">
-                <strong className="text-[9px]">1. Choose your bank</strong>
-                <span className="text-[7px] text-faint">Select the bank you'll transfer to.</span>
+                <strong className="text-[12px]">1. Choose your bank</strong>
+                <span className="text-[12px] text-faint">Select the bank you'll transfer to.</span>
               </div>
             </div>
 
@@ -165,10 +174,10 @@ export function PaymentFlow() {
                       selected ? 'border-navy bg-navy text-white' : attempted && !bank ? 'border-[#c4574a] bg-white' : 'border-ink/[.09] bg-white hover:border-ink/25'
                     }`}
                   >
-                    <span className={`grid size-[30px] flex-none place-items-center rounded-full text-[9px] font-bold ${selected ? 'bg-white text-navy' : 'bg-[#f5f5f3] text-muted'}`}>{item.shortName}</span>
+                    <span className={`grid size-[30px] flex-none place-items-center rounded-full text-[12px] font-bold ${selected ? 'bg-white text-navy' : 'bg-[#f5f5f3] text-muted'}`}>{item.shortName}</span>
                     <span className="grid flex-1 gap-0.5">
-                      <strong className="text-[10px]">{item.name}</strong>
-                      <span className={`text-[8px] ${selected ? 'text-white/70' : 'text-muted'}`}>Bank transfer · IBAN or account number</span>
+                      <strong className="text-[12px]">{item.name}</strong>
+                      <span className={`text-[12px] ${selected ? 'text-white/70' : 'text-muted'}`}>Bank transfer · IBAN or account number</span>
                     </span>
                     <span className={`grid size-[19px] place-items-center rounded-full border ${selected ? 'border-white/30 bg-white text-navy' : 'border-faint/50 text-transparent'}`}>
                       <Check size={12} />
@@ -177,7 +186,7 @@ export function PaymentFlow() {
                 );
               })}
             </div>
-            {attempted && !bank && <p role="alert" className="mb-0 mt-2 text-[8px] font-medium text-[#b3382b]">Please choose a bank to see the transfer details.</p>}
+            {attempted && !bank && <p role="alert" className="mb-0 mt-2 text-[12px] font-medium text-[#b3382b]">Please choose a bank to see the transfer details.</p>}
 
             {bank && (
               <div className="mt-3.5 rounded-[5px] border border-line bg-paper-light px-3.5 pb-3.5 pt-1">
@@ -197,7 +206,7 @@ export function PaymentFlow() {
                 </div>
                 <div className={`${summaryRow} mt-[11px] items-baseline border-t border-line`}>
                   <span className="text-muted">Amount to transfer</span>
-                  <strong className="text-[11px]">{formatPrice(booking.advanceAmount)}</strong>
+                  <strong className="text-[12px]">{formatPrice(booking.advanceAmount)}</strong>
                 </div>
               </div>
             )}
@@ -207,8 +216,8 @@ export function PaymentFlow() {
             <div className={cardTitleRow}>
               <ShieldCheck size={16} className="text-muted" />
               <div className="grid gap-0.5">
-                <strong className="text-[9px]">2. Upload your payment screenshot</strong>
-                <span className="text-[7px] text-faint">A screenshot of the successful transfer, showing the amount.</span>
+                <strong className="text-[12px]">2. Upload your payment screenshot</strong>
+                <span className="text-[12px] text-faint">A screenshot of the successful transfer, showing the amount.</span>
               </div>
             </div>
             <div className="pt-[13px]">

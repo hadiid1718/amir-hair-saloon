@@ -43,7 +43,7 @@ export function WorkSection() {
           />
         ))}
         <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(180deg,rgba(0,0,0,.05),rgba(0,0,0,.34))]" />
-        <div className="absolute bottom-3.5 right-[clamp(14px,4vw,56px)] z-3 flex items-center gap-[7px] text-[9px] text-white max-[520px]:bottom-2.5 max-[520px]:right-2.5">
+        <div className="absolute bottom-3.5 right-[clamp(14px,4vw,56px)] z-3 flex items-center gap-[7px] text-[12px] text-white max-[520px]:bottom-2.5 max-[520px]:right-2.5">
           <button type="button" className={arrow} onClick={() => moveCarousel(-1)} aria-label="Previous studio image">
             <ArrowLeft size={14} />
           </button>
@@ -68,10 +68,10 @@ export function WorkSection() {
             <figure className="group relative m-0 aspect-[1/1.16] overflow-hidden rounded-[5px] bg-[#e6e5e3]" key={`${src}-${index}`}>
               <img className="size-full object-cover transition-transform duration-[450ms] group-hover:scale-[1.035]" src={src} alt={`Asad Hair Saloon haircut ${index + 1}`} loading="lazy" />
               <div className="absolute inset-0 flex scale-[.98] items-center justify-center gap-[5px] bg-black/40 text-white opacity-0 transition duration-[280ms] group-focus-within:scale-100 group-focus-within:opacity-100 group-hover:scale-100 group-hover:opacity-100">
-                <span className="text-[10px] font-bold">View</span>
+                <span className="text-[12px] font-bold">View</span>
                 <ArrowUpRight size={13} />
               </div>
-              <span className="absolute bottom-[7px] left-2 text-[8px] text-white [text-shadow:0_1px_8px_rgba(0,0,0,.45)]">
+              <span className="absolute bottom-[7px] left-2 text-[12px] text-white [text-shadow:0_1px_8px_rgba(0,0,0,.45)]">
                 {String(index + 1).padStart(2, '0')}
               </span>
             </figure>
